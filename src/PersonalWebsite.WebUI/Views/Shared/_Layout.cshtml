@@ -3,15 +3,36 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PersonalWebsite.WebUI</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
 </head>
 <body>
-    <main>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 py-2">
+        <div class="container">
+            <a class="navbar-brand" href="/">muhammednlfrk</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/">Hakkımda</a>
+                    <a class="nav-link" href="/blog">Yazılarım</a>
+                    <a class="nav-link" href="https://github.com/muhammednlfrk/">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main role="main" class="container my-4">
         @RenderBody()
     </main>
+    <footer class="footer bg-light">
+        <div class="container my-2">
+            <p class="text-muted text-center">Muhammed Nilifırka</p>
+        </div>
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/main.js"></script>
 </body>
 </html>
