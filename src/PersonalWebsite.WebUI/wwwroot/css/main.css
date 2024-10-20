@@ -1,5 +1,17 @@
 ﻿.footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
 }
+
+blockquote {
+    font-size: 1rem !important;
+    font-style: italic;
+    border-left: .25em solid;
+    border-color: #11bbd7;
+    padding-left: .5rem;
+}
+
+blockquote p {
+    margin-bottom: .25rem;
+}
+

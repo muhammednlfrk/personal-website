@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Markdig;
+using Microsoft.AspNetCore.Mvc;
 
 namespace PersonalWebsite.WebUI.Controllers;
 
 [Route("")]
-[Route("home")]
 public class HomeController : Controller
 {
     [HttpGet("")]
@@ -24,6 +24,6 @@ public class HomeController : Controller
     public IActionResult Article(string id)
     {
         ViewData["Title"] = id;
-        return View("Blog");
+        return View("BlogPost");
     }
 }
