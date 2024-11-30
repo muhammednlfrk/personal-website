@@ -8,6 +8,9 @@ gulp.task('copy-libs', async function () {
     // bootstrap.
     gulp.src('node_modules/bootstrap/dist/**/*')
         .pipe(gulp.dest('wwwroot/lib/bootstrap'));
+    // bootstrap.
+    gulp.src('node_modules/bootstrap-icons/**/*')
+        .pipe(gulp.dest('wwwroot/lib/bootstrap-icons'));
     // jquery.
     gulp.src('node_modules/jquery/dist/**/*')
         .pipe(gulp.dest('wwwroot/lib/jquery'));
@@ -31,4 +34,4 @@ gulp.task('clean-css', async function () {
 });
 
 // Set default task for gulp.
-gulp.task('default', gulp.series('copy-libs', 'clean-css'));
+gulp.task('default', gulp.series('clean-css', 'copy-libs'));
