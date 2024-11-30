@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PersonalWebsite.Data;
+using PersonalWebsite.Data.Entities;
 
 namespace PersonalWebsite.MVCWebUI.Controllers;
 
 [Route("")]
-public class HomeController(IPostRepository postRepository) : Controller
+public class HomeController(IPostRepository postRepository, IWebHostEnvironment webHostEnvironment) : Controller
 {
     private readonly IPostRepository _postRepository = postRepository;
+    private readonly IWebHostEnvironment _webHostEnvironment = webHostEnvironment;
 
     [HttpGet("")]
     public IActionResult AboutMe() => View();
@@ -19,9 +21,14 @@ public class HomeController(IPostRepository postRepository) : Controller
     }
 
     [HttpGet("blog/{blogId}")]
-    public async Task<IActionResult> Post(string blogId)
+    public async Task<IActionResult> BlogPost(string blogId)
     {
-        ViewBag.Post = await _postRepository.GetAsync(blogId);
+        Post? post = await _postRepository.GetAsync(blogId);
+        if (post == null) return NotFound();
+        ViewBag.Post = post;
+        string htmlFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "posts", $"{blogId}.html");
+        string htmlContent = System.IO.File.ReadAllText(htmlFilePath);
+        ViewBag.PostHtmlContent = htmlContent;
         return View();
     }
 }

@@ -23,7 +23,7 @@
     </header>
     <article id="blog-post" class="row justify-content-center">
         <div class="col-lg-8 p-3">
-            @Html.Raw(File.ReadAllText(@"C:\Users\muham\Desktop\example.html"))
+            @Html.Raw(ViewBag.PostHtmlContent)
         </div>
     </article>
 </div>

@@ -15,8 +15,13 @@ public static class ASPNetExtensions
         serviceCollection.AddSingleton(connectionProvider);
 
         serviceCollection.AddSingleton<IRepository<Post>, PostRepositorySQLiteDapper>();
+        serviceCollection.AddSingleton<IPagedRepository<Post>, PostRepositorySQLiteDapper>();
         serviceCollection.AddSingleton<IPostRepository, PostRepositorySQLiteDapper>();
 
+        serviceCollection.AddSingleton<IRepository<User>, UserRepositorySQLiteDapper>();
+        serviceCollection.AddSingleton<IUserRepository, UserRepositorySQLiteDapper>();
+
         SQLitePostDbCreator.CreatePostDbIfNotExists(config.PostDbConnectionString);
+        SQLiteUserDbCreator.CreateUserDbIfNotExists(config.UserDbConnectionString);
     }
 }

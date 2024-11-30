@@ -8,4 +8,9 @@ public static class SQLiteConnectionProviderExtensions
     {
         return connectionProvider.GetConnection(DBDescriptors.POST_DB);
     }
+
+    public static SQLiteConnection GetUserDbConnection(this SQLiteConnectionProvider connectionProvider)
+    {
+        return connectionProvider.GetConnection(DBDescriptors.USER_DB);
+    }
 }

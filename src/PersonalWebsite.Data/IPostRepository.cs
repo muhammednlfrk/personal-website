@@ -2,7 +2,7 @@
 
 namespace PersonalWebsite.Data;
 
-public interface IPostRepository : IRepository<Post>
+public interface IPostRepository : IRepository<Post>, IPagedRepository<Post>
 {
     Task<Post?> GetAsync(string postId);
     Task<bool> DeleteAsync(string postId);
