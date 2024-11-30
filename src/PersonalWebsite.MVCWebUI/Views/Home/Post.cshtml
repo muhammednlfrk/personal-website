@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = ViewBag.Post.PostTitle;
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/blog-post.min.css" />
+}
+<div class="container">
+    <header>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 pt-3 px-3">
+                <p class="fs-6 mb-0 fw-light fst-italic text-secondary">
+                    <span>@ViewBag.Post.CreationTime.ToString("MMMM dd,yyyy") tarihinde yayımlandı.</span>
+                    &bull;
+                    <span>Muhammed Nilifırka</span>
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 p-0 pt-3">
+                <hr class="opacity-25 my-0 mx-3" />
+            </div>
+        </div>
+    </header>
+    <article id="blog-post" class="row justify-content-center">
+        <div class="col-lg-8 p-3">
+            @Html.Raw(File.ReadAllText(@"C:\Users\muham\Desktop\example.html"))
+        </div>
+    </article>
+</div>

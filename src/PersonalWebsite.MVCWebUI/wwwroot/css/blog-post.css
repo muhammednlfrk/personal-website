@@ -1,0 +1,45 @@
+﻿#blog-post blockquote {
+    padding: 1rem !important;
+    color: rgba(var(--bs-primary-rgb), 1);
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    border-left: thick solid var(--bs-primary) !important;
+    margin-bottom: 1rem !important;
+}
+
+#blog-post p {
+    font-size: 1rem !important;
+}
+
+#blog-post pre {
+    font-size: 1rem !important;
+}
+
+#blog-post blockquote p {
+    font-size: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+#blog-post a {
+    color: RGBA(var(--bs-primary-rgb), var(--bs-link-opacity, 1)) !important;
+    text-decoration-color: RGBA(var(--bs-primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
+    text-decoration: none;
+}
+
+    #blog-post a:hover {
+        text-decoration: underline;
+    }
+
+#blog-post img {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#blog-post figcaption {
+    font-size: .9rem !important;
+    text-align: center !important;
+    font-style: italic !important;
+    font-weight: 100;
+}

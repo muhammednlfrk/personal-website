@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'CaskaydiaCove';
+    src: url('/fonts/CaskaydiaCove/CaskaydiaCoveNerdFont-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CaskaydiaCove';
+    src: url('/fonts/CaskaydiaCove/CaskaydiaCoveNerdFont-Bold.ttf') format('truetype');
+    font-weight: Bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CaskaydiaCove';
+    src: url('/fonts/CaskaydiaCove/CaskaydiaCoveNerdFont-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CaskaydiaCove';
+    src: url('/fonts/CaskaydiaCove/CaskaydiaCoveNerdFont-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CaskaydiaCove';
+    src: url('/fonts/CaskaydiaCove/CaskaydiaCoveNerdFont-Light.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CaskaydiaCove';
+    src: url('/fonts/CaskaydiaCove/CaskaydiaCoveNerdFont-LightItalic.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: italic;
+}

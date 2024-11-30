@@ -1,6 +1,7 @@
-﻿let gulp = require('gulp');
-let cleanCSS = require('gulp-clean-css');
-let rename = require('gulp-rename');
+﻿import gulp from 'gulp';
+import cleanCSS from 'gulp-clean-css';
+import rename from 'gulp-rename';
+import filter from 'gulp-filter';
 
 // Copy npm packages to wwwroot/lib directory.
 gulp.task('copy-libs', async function () {
@@ -20,10 +21,13 @@ gulp.task('copy-libs', async function () {
 
 // Minimize the css files.
 gulp.task('clean-css', async function () {
+    let cssFilter = filter(['**/*.css', '!**/*.min.css'], { restore: true });
     gulp.src('wwwroot/css/**/*css')
-        .pipe(cleanCSS())
+        .pipe(cssFilter)
+        .pipe(cleanCSS({ rebase: false }))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('wwwroot/css'));
+        .pipe(gulp.dest('wwwroot/css'))
+        .pipe(cssFilter.restore);;
 });
 
 // Set default task for gulp.
