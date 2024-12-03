@@ -50,7 +50,7 @@
 
 #blog-post blockquote {
     margin-right: 1em;
-    margin-left: 1em;
+    margin-left: .5em;
     margin-bottom: 0em;
     padding-left: 1em;
     border-left: 2px solid #e6e6e6;
@@ -66,12 +66,16 @@
 }
 
 #blog-post th {
-    padding: 0.25em 0.5em 0.25em 0.5em;
+    padding: 0.25em 0.5em 0.25em 0.5em !important;
+    --bs-bg-opacity: 1;
+    color: #f2f2f2;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
 
 #blog-post td {
     padding: 0.125em 0.5em 0.25em 0.5em;
 }
+
 #blog-post tbody {
     margin-top: 0.5em;
     border-top: 1px solid #1a1a1a;
@@ -97,7 +101,6 @@
 }
 
 #blog-post pre {
-    margin: 1em 0;
     overflow: auto;
 }
 
@@ -190,6 +193,9 @@
 
 #blog-post div.sourceCode {
     margin: 1em 0;
+    padding: 8px;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity)) !important
 }
 
 #blog-post pre.sourceCode {
