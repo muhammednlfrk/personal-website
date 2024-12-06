@@ -1,6 +1,14 @@
 ﻿@{
     ViewData["Title"] = ViewBag.Post.PostTitle;
 }
+@section Meta {
+    <meta name="description" content="@ViewBag.Post.PostDescription" />
+    <meta name="og:type" content="article" />
+    <meta name="og:site_name" content="Muhammed Nilifırka"/>
+    <meta name="og:title" content="@ViewBag.Post.PostTitle" />
+    <meta name="og:description" content="@ViewBag.Post.PostDescription" />
+    <meta name="og:published_date" content="@ViewBag.Post.CreationTime.ToString()" />
+}
 @section Styles {
     <link rel="stylesheet" href="~/css/blog-post.min.css" />
 }
