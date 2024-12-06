@@ -3,30 +3,34 @@
 @{
     ViewData["Title"] = "Muhammed Nilifırka";
 }
-<div class="container-lg p-3">
-    <header class="px-3 mb-4">
-        <h1 class="page-title">Yazılarım</h1>
+<article class="container container-lg p-3">
+    <header class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="page-title mb-4">Yazılarım</h1>
+        </div>
     </header>
-    <main>
-        @if (((List<Post>)ViewBag.Posts).Count == 0)
-        {
-            <p class="fs-5 px-3 pb-3 mb-0 fw-light text-body-secondary">Henüz herhangi bir yazı bulunmamaktadır.</p>
-        }
-        else
-        {
-            @foreach (Post post in ViewBag.Posts)
+    <section class="row justify-content-center">
+        <div class="col-md-8">
+            @if (((List<Post>)ViewBag.Posts).Count == 0)
             {
-                <div class="px-3 mb-4">
-                    <p class="mb-0 fs-6 fw-light text-body-secondary">@post.CreationTime.ToString("MMMM dd,yyyy")</p>
-                    <a href="/blog/@post.PostId" class="fs-3 fw-normal link-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover">
-                        @post.PostTitle
-                    </a>
-                    <div class="fs-5 fw-light text-body">
-                        @post.PostDescription
-                        <a href="/blog/@post.PostId" class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Yazıyı Oku&rarr;</a>
-                    </div>
-                </div>
+                <p class="fs-5 mb-3 fw-light text-body-secondary">Henüz herhangi bir yazı bulunmamaktadır.</p>
             }
-        }
-    </main>
-</div>
+            else
+            {
+                @foreach (Post post in ViewBag.Posts)
+                {
+                    <div class="mb-4">
+                        <p class="mb-0 fs-6 fw-light text-body-secondary">@post.CreationTime.ToString("dd MMMM yyyy")</p>
+                        <a href="/blog/@post.PostId" class="fs-3 fw-normal link-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover">
+                            @post.PostTitle
+                        </a>
+                        <div class="fs-5 fw-light text-body">
+                            @post.PostDescription
+                            <a href="/blog/@post.PostId" class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Yazıyı Oku&rarr;</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+</article>

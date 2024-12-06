@@ -4,7 +4,7 @@
 @section Meta {
     <meta name="description" content="@ViewBag.Post.PostDescription" />
     <meta name="og:type" content="article" />
-    <meta name="og:site_name" content="Muhammed Nilifırka"/>
+    <meta name="og:site_name" content="Muhammed Nilifırka" />
     <meta name="og:title" content="@ViewBag.Post.PostTitle" />
     <meta name="og:description" content="@ViewBag.Post.PostDescription" />
     <meta name="og:published_date" content="@ViewBag.Post.CreationTime.ToString()" />
@@ -12,10 +12,31 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/blog-post.min.css" />
 }
-<div class="container">
-    <article id="blog-post" class="row justify-content-center">
-        <div class="col-lg-8 px-3">
+
+<article id="blog-post" class="container">
+    <header class="row justify-content-center">
+        <div class="col-lg-8">
+            <p class="mt-3 mb-0 h1 fw-semibold text-body">@ViewBag.Post.PostTitle</p>
+            <p class="mt-1 mb-3 fs-5 fw-light text-body-secondary">@ViewBag.Post.PostDescription</p>
+            <hr class="mb-0" />
+        </div>
+    </header>
+    <section class="row justify-content-center">
+        <div class="col-lg-8">
             @Html.Raw(ViewBag.PostHtmlContent)
         </div>
-    </article>
-</div>
+    </section>
+    <footer class="row justify-content-center">
+        <div class="col-lg-8">
+            <hr />
+            <p class="text-center fw-light text-body-secondary">
+                <span>
+                    @ViewBag.Post.CreationTime.ToString("dd MMMM yyyy")
+                </span>
+                <span>
+                    tarihinde Muhammed Nilifırka tarafından yayımlanmıştır.
+                </span>
+            </p>
+        </div>
+    </footer>
+</article>

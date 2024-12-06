@@ -5,9 +5,9 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/about-me.min.css" />
 }
-<div class="container container-lg p-3">
-    <div class="col col-lg-8">
-        <div class="row top-buffer fs-5 fw-light">
+<article class="container container-lg p-3 fs-5 fw-light">
+    <header class="row justify-content-center">
+        <div class="col-md-8">
             <h1 class="page-title">Merhaba, Ben Muhammed</h1>
             <p>
                 2016 yılından beri yazılım geliştirme ile ilgileniyorum. Aktif olarak Microsoft teknolojileri ve dilleri üzerine çalışıyorum (C#, ASP.NET Core MVC, WinForm, MSSQL). Yazılım geliştirme süreçlerinde kalite, performans ve sürdürülebilirlik gibi temel unsurlara öncelik veriyorum.
@@ -16,10 +16,12 @@
                 Ayrıca, yazılım geliştirme süreçlerini sürekli iyileştirmek ve yeni teknolojileri öğrenmek konusunda çabalıyorum. "containerization" araçları (Docker, Kubernetes), RPC araçları (gRPC), "message queue" (RabbitMQ), "distributed cache" (Redis), veritabanları (SQLite, MySQL), diğer programlama dilleri(Go, C) gibi daha pek çok aracı ve programlama dilini öğrenme çabası ve hevesi içerisindeyim.
             </p>
             <p>
-                <a href="/blog" class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Yazılarımda</a> yazılım geliştirme, bilgisayar bilimleri, hobilerim ve daha pek çok konuda yazıyorum.
+                Yazılım geliştirme, bilgisayar bilimleri, hobilerim ve daha pek çok konuda <a href="/blog" class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover">yazıyorum&rarr;</a>. Ayrıca bu web sitesinin kaynak kodlarına <a href="https://github.com/muhammednlfrk/personal-website" target="_blank" class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover">buradan&#8599;</a> erişebilirsiniz.
             </p>
         </div>
-        <div class="row top-buffer fs-5 fw-light">
+    </header>
+    <section class="row justify-content-center pt-4">
+        <div class="col-md-8">
             <h2 class="h2">Yüklenen son yazılarım</h2>
             @if (((List<Post>)ViewBag.Last10Posts).Count == 0)
             {
@@ -36,9 +38,11 @@
                 }
             }
         </div>
-        <div class="row top-buffer fs-5 fw-light">
+    </section>
+    <footer class="row justify-content-center pt-4">
+        <div class="col-md-8">
             <h2 class="h2">İletişim</h2>
-            <p><a href="https://www.linkedin.com/in/muhammed-nilifirka" class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover" target="_blank" title="LinkedIn" aria-label="LinkedIn">LinkedIn</a> üzerinden mesaj atabilir veya <a href="mailto:muhammednlfrk@gmail.com" class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover" title="muhammednlfrk@gmail.com" aria-label="muhammednlfrk@gmail.com">muhammednlfrk@gmail.com</a> adresinden bana e-posta gönderebilirsiniz. E-postalara en geç iki gün içerisinde dönüş yapıyorum.</p>
+            <p><a href="https://www.linkedin.com/in/muhammed-nilifirka" class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover" target="_blank" title="LinkedIn" aria-label="LinkedIn">LinkedIn</a> üzerinden mesaj atabilir veya <a href="mailto:muhammednlfrk@gmail.com" class="link link-underline link-underline-opacity-0 link-underline-opacity-100-hover" title="muhammednlfrk@gmail.com" aria-label="muhammednlfrk@gmail.com">muhammednlfrk@gmail.com</a> adresine e-posta gönderebilirsiniz. E-postalara mümkün olanduğunca kısa süre içerisinde dönüş yapmaya çalışıyorum ancak kimi zaman günlerce göz atmadığım oluyor. Olur da ulaşmaya çalışırsanız ve uzun süre dönüş sağlamazsam tekrar mesaj veya e-posta gönderebilirsiniz.</p>
         </div>
-    </div>
-</div>
+    </footer>
+</article>
