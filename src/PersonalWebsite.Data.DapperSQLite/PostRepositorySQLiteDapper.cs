@@ -111,5 +111,12 @@ public sealed class PostRepositorySQLiteDapper : IPostRepository
         return affectedRowCount > 0 ? targetPost : null;
     }
 
+    public async Task<IEnumerable<Post>> GetLast10ArticesAsync()
+    {
+        using SQLiteConnection conn = _connectionProvider.GetPostDbConnection();
+        return await conn.QueryAsync<Post>(
+           sql: "SELECT PostId, PostTitle, PostDescription, CreationTime, UpdateTime FROM Posts ORDER BY CreationTime LIMIT 10;");
+    }
+
     #endregion
 }

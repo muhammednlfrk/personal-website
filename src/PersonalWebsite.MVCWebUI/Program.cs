@@ -7,7 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSQLiteRepositories(new SQLiteDbConfiguration
 {
     PostDbConnectionString = $@"data source={AppDomain.CurrentDomain.BaseDirectory}postdb.db;",
-    UserDbConnectionString = $@"data source={AppDomain.CurrentDomain.BaseDirectory}uderdb.db;"
+    UserDbConnectionString = $@"data source={AppDomain.CurrentDomain.BaseDirectory}userdb.db;"
 });
 
 WebApplication app = builder.Build();

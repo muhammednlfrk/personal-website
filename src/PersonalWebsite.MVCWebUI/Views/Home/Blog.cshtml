@@ -4,22 +4,29 @@
     ViewData["Title"] = "Muhammed Nilifırka";
 }
 <div class="container-lg p-3">
-    <header class="px-3 mb-3">
-        <h1 class="fs-2 mb-0 text-body">Yazılarım:</h1>
+    <header class="px-3 mb-4">
+        <h1 class="page-title">Yazılarım</h1>
     </header>
-    <div class="col col-lg-8">
-        <hr class="opacity-25 my-0 mx-3" />
-    </div>
     <main>
-        @foreach (Post post in ViewBag.Posts)
+        @if (((List<Post>)ViewBag.Posts).Count == 0)
         {
-            <div class="p-3">
-                <a href="/blog/@post.PostId" class="fw-semibold fs-3 link-underline link-underline-opacity-0 link-underline-opacity-100-hover">
-                    @post.PostTitle
-                </a>
-                <p class="d-flex fs-5 mb-2 fw-normal text-body">@post.PostDescription</p>
-                <p class="d-flex pt-1 mb-0 fs-6 fw-light text-body-secondary">@post.CreationTime.ToString("MMMM dd,yyyy")</p>
-            </div>
+            <p class="fs-5 px-3 pb-3 mb-0 fw-light text-body-secondary">Henüz herhangi bir yazı bulunmamaktadır.</p>
+        }
+        else
+        {
+            @foreach (Post post in ViewBag.Posts)
+            {
+                <div class="px-3 mb-4">
+                    <p class="mb-0 fs-6 fw-light text-body-secondary">@post.CreationTime.ToString("MMMM dd,yyyy")</p>
+                    <a href="/blog/@post.PostId" class="fs-3 fw-normal link-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover">
+                        @post.PostTitle
+                    </a>
+                    <div class="fs-5 fw-light text-body">
+                        @Html.Raw(post.PostDescription)
+                        <a href="/blog/@post.PostId" class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Yazıyı Oku&rarr;</a>
+                    </div>
+                </div>
+            }
         }
     </main>
 </div>

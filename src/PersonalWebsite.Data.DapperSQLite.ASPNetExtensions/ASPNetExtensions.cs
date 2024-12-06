@@ -10,6 +10,7 @@ public static class ASPNetExtensions
     {
         SQLiteConnectionCollection connectionCollection = new();
         connectionCollection.Add(DBDescriptors.POST_DB, config.PostDbConnectionString);
+        connectionCollection.Add(DBDescriptors.USER_DB, config.UserDbConnectionString);
 
         SQLiteConnectionProvider connectionProvider = connectionCollection.BuildProvider();
         serviceCollection.AddSingleton(connectionProvider);

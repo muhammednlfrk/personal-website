@@ -11,12 +11,16 @@ public class HomeController(IPostRepository postRepository, IWebHostEnvironment 
     private readonly IWebHostEnvironment _webHostEnvironment = webHostEnvironment;
 
     [HttpGet("")]
-    public IActionResult AboutMe() => View();
+    public async Task<IActionResult> AboutMe()
+    {
+        ViewBag.Last10Posts = (await _postRepository.GetLast10ArticesAsync()).ToList();
+        return View();
+    }
 
     [HttpGet("blog")]
     public async Task<IActionResult> Blog()
     {
-        ViewBag.Posts = (await _postRepository.GetAllAsync()).ToArray();
+        ViewBag.Posts = (await _postRepository.GetAllAsync()).ToList();
         return View();
     }
 

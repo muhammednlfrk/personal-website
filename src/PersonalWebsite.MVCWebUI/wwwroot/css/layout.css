@@ -3,6 +3,9 @@
     font-weight: bold;
 }
 
-fw-500 {
-    font-weight: 500 !important;
+.page-title {
+    font-size: 4.5rem;
+    line-height: 1.2;
+    font-weight: lighter;
+    margin-bottom: 1rem !important;
 }
