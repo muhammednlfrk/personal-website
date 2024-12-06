@@ -1,4 +1,10 @@
-﻿#nb-name {
-    font-family: Consolas !important;
+﻿#brand {
+    font-family: 'CaskaydiaCove';
     font-weight: bold;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: lighter;
+    margin-bottom: 1.5rem !important;
 }

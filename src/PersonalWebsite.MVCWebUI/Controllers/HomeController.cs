@@ -1,16 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PersonalWebsite.Data;
+using PersonalWebsite.Data.Entities;
 
 namespace PersonalWebsite.MVCWebUI.Controllers;
 
 [Route("")]
-public class HomeController : Controller
+public class HomeController(IPostRepository postRepository, IWebHostEnvironment webHostEnvironment) : Controller
 {
+    private readonly IPostRepository _postRepository = postRepository;
+    private readonly IWebHostEnvironment _webHostEnvironment = webHostEnvironment;
+
     [HttpGet("")]
-    public IActionResult AboutMe() => View();
+    public async Task<IActionResult> AboutMe()
+    {
+        ViewBag.Last10Posts = (await _postRepository.GetLast10ArticesAsync()).ToList();
+        return View();
+    }
 
     [HttpGet("blog")]
-    public IActionResult Blog() => View();
+    public async Task<IActionResult> Blog()
+    {
+        ViewBag.Posts = (await _postRepository.GetAllAsync()).ToList();
+        return View();
+    }
 
     [HttpGet("blog/{blogId}")]
-    public IActionResult BlogPost(string blogId) => View();
+    public async Task<IActionResult> BlogPost(string blogId)
+    {
+        Post? post = await _postRepository.GetAsync(blogId);
+        if (post == null) return NotFound();
+        ViewBag.Post = post;
+        string htmlFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "posts", $"{blogId}.html");
+        string htmlContent = System.IO.File.ReadAllText(htmlFilePath);
+        ViewBag.PostHtmlContent = htmlContent;
+        return View();
+    }
 }

@@ -9,4 +9,13 @@
 	<Target Name="rungulp" AfterTargets="Build">
 		<Exec command="gulp"></Exec>
 	</Target>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PersonalWebsite.Data.DapperSQLite.ASPNetExtensions\PersonalWebsite.Data.DapperSQLite.ASPNetExtensions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\fonts\" />
+	  <Folder Include="wwwroot\posts\" />
+	</ItemGroup>
 </Project>
